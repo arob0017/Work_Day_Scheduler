@@ -18,32 +18,59 @@ $(document).ready(function () {
     //store items to browser local storage on click of the save button
     $(".saveBtn").on("click", function () {
 
-        JSON.parse(localStorage.setItem("9AM", JSON.stringify(textNine.val())));
-        JSON.parse(localStorage.setItem("10AM", JSON.stringify(textTen.val())));
-        JSON.parse(localStorage.setItem("11AM", JSON.stringify(textEleven.val())));
-        JSON.parse(localStorage.setItem("12AM", JSON.stringify(textTwelve.val())));
-        JSON.parse(localStorage.setItem("13PM", JSON.stringify(textOne.val())));
-        JSON.parse(localStorage.setItem("14PM", JSON.stringify(textTwo.val())));
-        JSON.parse(localStorage.setItem("15PM", JSON.stringify(textThree.val())));
-        JSON.parse(localStorage.setItem("16PM", JSON.stringify(textFour.val())));
-        JSON.parse(localStorage.setItem("17PM", JSON.stringify(textFive.val())));
-        JSON.parse(localStorage.setItem("18PM"), JSON.stringify(textSix.val()));
+        (localStorage.setItem("9AM", JSON.stringify(textNine.val())));
+        (localStorage.setItem("10AM", JSON.stringify(textTen.val())));
+        (localStorage.setItem("11AM", JSON.stringify(textEleven.val())));
+        (localStorage.setItem("12AM", JSON.stringify(textTwelve.val())));
+        (localStorage.setItem("13PM", JSON.stringify(textOne.val())));
+        (localStorage.setItem("14PM", JSON.stringify(textTwo.val())));
+        (localStorage.setItem("15PM", JSON.stringify(textThree.val())));
+        (localStorage.setItem("16PM", JSON.stringify(textFour.val())));
+        (localStorage.setItem("17PM", JSON.stringify(textFive.val())));
+        (localStorage.setItem("18PM"), JSON.stringify(textSix.val()));
 
     })
 
     //Stored content will display on screen and when the browser page is refreshed, the content will stay
-    $("#nine-text").append(localStorage.getItem("9AM"));
-    $("#ten-text").append(localStorage.getItem("10AM"));
-    $("#eleven-text").append(localStorage.getItem("11AM"));
-    $("#twelve-text").append(localStorage.getItem("12AM"));
-    $("#one-text").append(localStorage.getItem("13PM"));
-    $("#two-text").append(localStorage.getItem("14PM"));
-    $("#three-text").append(localStorage.getItem("15PM"));
-    $("#four-text").append(localStorage.getItem("16PM"));
-    $("#five-text").append(localStorage.getItem("17PM"));
-    $("#six-text").append(localStorage.getItem("18PM"));
+    $("#nine-text").append(JSON.parse(localStorage.getItem("9AM")));
+    $("#ten-text").append(JSON.parse(localStorage.getItem("10AM")));
+    $("#eleven-text").append(JSON.parse(localStorage.getItem("11AM")));
+    $("#twelve-text").append(JSON.parse(localStorage.getItem("12AM")));
+    $("#one-text").append(JSON.parse(localStorage.getItem("13PM")));
+    $("#two-text").append(JSON.parse(localStorage.getItem("14PM")));
+    $("#three-text").append(JSON.parse(localStorage.getItem("15PM")));
+    $("#four-text").append(JSON.parse(localStorage.getItem("16PM")));
+    $("#five-text").append(JSON.parse(localStorage.getItem("17PM")));
+    $("#six-text").append(JSON.parse(localStorage.getItem("18PM")));
 
-})
-// When Clear button is clicked, all locally stored items will clear from page and local storage.
-// Will display hours that have not been yet to be green, past hours will be pale blue, and current hour will be red
 
+    // When Clear button is clicked, all locally stored items will clear from page and local storage.
+    // Will display hours that have not been yet to be green, past hours will be pale blue, and current hour will be red
+
+    // const rows = document.getElementsByClassName("row");
+    // let currentHour = parseInt(moment().format('H'));
+
+    // Array.from(rows).forEach(row => {
+    //     let rowIdString = row.id,
+    //         rowHour;
+    //     if (rowIdString) {
+    //         rowHour = parseInt(rowIdString);
+    //     }
+    //     if (rowHour) {
+    //         // Compares row id to current hour and sets color accordingly
+    //         if (currentHour === rowHour) {
+    //             setColor(row, "red");
+    //         } else if ((currentHour < rowHour) && (currentHour > rowHour - 6)) {
+    //             setColor(row, "green");
+    //         } else if ((currentHour > rowHour) && (currentHour < rowHour + 6)) {
+    //             setColor(row, "lightgrey");
+    //         } else {
+    //             setColor(row, "white");
+    //         }
+    //     }
+    // });
+
+    // function setColor(element, color) {
+    //     element.style.backgroundColor = color;
+    // }
+});

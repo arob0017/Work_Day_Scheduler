@@ -59,18 +59,25 @@ textarea{
 }
 
 .saveBtn {
-  border-left: 1px solid black;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  background-color: #06AED5;
-  color: white;
-  display: inline-block;
+  border-left: 1px solid black !important;
+  border-top-right-radius: 15px !important;
+  border-bottom-right-radius: 15px !important;
+  background-color: #06AED5 !important;
+  color: white !important;
+  
 }
 
 .saveBtn i:hover {
   font-size: 20px;
   transition: all .3s ease-in-out;
+  
 }
 h3 {
   display: inline-block;
+}
+.row {
+  padding: 0.5em;
+  margin-bottom: 0.4em;
+  border: 1px solid gray;
+  border-radius: 0.5em;
 }
