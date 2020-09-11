@@ -45,32 +45,30 @@ $(document).ready(function () {
 
 
     // When Clear button is clicked, all locally stored items will clear from page and local storage.
-    // Will display hours that have not been yet to be green, past hours will be pale blue, and current hour will be red
+    $("#clearBtn").on('click', function () {
 
-    // const rows = document.getElementsByClassName("row");
-    // let currentHour = parseInt(moment().format('H'));
+        event.preventDefault();
+        window.localStorage.clear();
+    });
 
-    // Array.from(rows).forEach(row => {
-    //     let rowIdString = row.id,
-    //         rowHour;
-    //     if (rowIdString) {
-    //         rowHour = parseInt(rowIdString);
-    //     }
-    //     if (rowHour) {
-    //         // Compares row id to current hour and sets color accordingly
-    //         if (currentHour === rowHour) {
-    //             setColor(row, "red");
-    //         } else if ((currentHour < rowHour) && (currentHour > rowHour - 6)) {
-    //             setColor(row, "green");
-    //         } else if ((currentHour > rowHour) && (currentHour < rowHour + 6)) {
-    //             setColor(row, "lightgrey");
-    //         } else {
-    //             setColor(row, "white");
-    //         }
-    //     }
-    // });
 
-    // function setColor(element, color) {
-    //     element.style.backgroundColor = color;
-    // }
+    // Will display hours that have not been yet to be pale red, past hours will be pale blue, and current hour will be pale green
+    var currentColorEl = $(".current-color");
+    var currentHour = (moment().format('H'));
+
+    for (var i = 0; i < currentColorEl.length; i++) {
+
+        var timeColor = $(currentColorEl[i]);
+        var timeColorId = timeColor.attr("id");
+        var timeColorTextarea = timeColor.children(".row").children("textarea");
+
+        if (timeColorId === currentHour) {
+            timeColorTextarea.addClass("present");
+        } else if (moment(timeColorId, "H").isBefore()) {
+            timeColorTextarea.addClass("past");
+        } else if (moment(timeColorId, "H").isAfter()) {
+            timeColorTextarea.addClass("future");
+        }
+    }
+
 });
